@@ -38,8 +38,8 @@ median_steps = as.character(median(fit2$tot_steps))
 ```
 
 
-The Mean number of steps per day is 10766.19.
-The Median number of steps per day is 10765.
+### The Mean number of steps per day is 10766.19.
+### The Median number of steps per day is 10765.
 
 ## What is the average daily activity pattern?  Average Number of Steps Taken per 5-minute Interval
 
@@ -62,7 +62,7 @@ max_avg_steps = maxint$avg_steps
 ```
 
 
-Interval 835 has the maximum average number of steps of all intervals (352.48)
+### Interval 835 has the maximum average number of steps of all intervals (352.48)
 
 ## Imputing missing values
 
@@ -71,9 +71,9 @@ Interval 835 has the maximum average number of steps of all intervals (352.48)
 na_val_count = nrow(fit_orig[is.na(fit_orig$steps), ])
 ```
 
-There are 2304 missing (NA) values in the original data set.
+### There are 2304 missing (NA) values in the original data set.
 
-# Create a dataset that fills in the NA values with the mean for that day.
+# Creates a dataset that fills in the NA values **with the mean for 5-minute interval that corresponds to that of the missing interval.   <<< MY MISSING DATA STRATEGY :) **
 
 ```r
 fit4 = fit_orig
@@ -113,8 +113,10 @@ median_steps_narm = as.character(round(median(fit5$tot_steps), 0))
 ```
 
 
-The Mean number of steps per day after missing values for steps calculated is 10766.
-The Median number of steps per day after missing values for steps calculated is 10766.
+### The Mean number of steps per day after missing values for steps calculated is 10766.
+### The Median number of steps per day after missing values for steps calculated is 10766.
+
+### It appears that the missing data strategy that created the simulated data set (find average for the 5-minute interval) produces similar results to the mean and median calculations in the original data set when missing values are ignored.
 
 ## What is the average daily activity pattern?  Average Number of Steps Taken per 5-minute Interval
 

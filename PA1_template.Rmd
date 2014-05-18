@@ -29,8 +29,8 @@ avg_steps = as.character(round(mean(fit2$tot_steps),2))
 median_steps = as.character(median(fit2$tot_steps))
 ```
 
-The Mean number of steps per day is `r avg_steps`.
-The Median number of steps per day is `r median_steps`.
+### The Mean number of steps per day is `r avg_steps`.
+### The Median number of steps per day is `r median_steps`.
 
 ## What is the average daily activity pattern?  Average Number of Steps Taken per 5-minute Interval
 
@@ -46,16 +46,16 @@ max_steps_interval = maxint$interval
 max_avg_steps = maxint$avg_steps
 ```
 
-Interval `r max_steps_interval` has the maximum average number of steps of all intervals (`r max_avg_steps`)
+### Interval `r max_steps_interval` has the maximum average number of steps of all intervals (`r max_avg_steps`)
 
 ## Imputing missing values
 
 ```{r}
 na_val_count = nrow(fit_orig[is.na(fit_orig$steps),])
 ```
-There are `r na_val_count` missing (NA) values in the original data set.
+### There are `r na_val_count` missing (NA) values in the original data set.
 
-# Create a dataset that fills in the NA values with the mean for that day.
+# Creates a dataset that fills in the NA values **with the mean for 5-minute interval that corresponds to that of the missing interval.   <<< MY MISSING DATA STRATEGY :) **
 ```{r}
 fit4 = fit_orig
 fit4$date = as.Date(fit4$date)
@@ -81,8 +81,10 @@ avg_steps_narm = as.character(round(mean(fit5$tot_steps),0))
 median_steps_narm = as.character(round(median(fit5$tot_steps),0))
 ```
 
-The Mean number of steps per day after missing values for steps calculated is `r avg_steps_narm`.
-The Median number of steps per day after missing values for steps calculated is `r median_steps_narm`.
+### The Mean number of steps per day after missing values for steps calculated is `r avg_steps_narm`.
+### The Median number of steps per day after missing values for steps calculated is `r median_steps_narm`.
+
+### It appears that the missing data strategy that created the simulated data set (find average for the 5-minute interval) produces similar results to the mean and median calculations in the original data set when missing values are ignored.
 
 ## What is the average daily activity pattern?  Average Number of Steps Taken per 5-minute Interval
 
